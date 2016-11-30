@@ -27,14 +27,14 @@ public abstract class OCBinaryOperation {
 	 * @param status the status to update during the operation
 	 */
 	public void run(final MultiStatus status) {
-		String oldLocation = OpenShiftContext.get().get(IBinaryCapability.OPENSHIFT_BINARY_LOCATION);
+		String oldLocation1 = OpenShiftContext.get().get(IBinaryCapability.OPENSHIFT_BINARY_LOCATION);
 		String location = OCBinary.getInstance().getLocation();
 		OpenShiftContext.get().put(IBinaryCapability.OPENSHIFT_BINARY_LOCATION, location);
 		try {
 			runOCBinary(status);
 		} finally {
-			if (!StringUtils.isEmpty(oldLocation)) {
-				OpenShiftContext.get().put(IBinaryCapability.OPENSHIFT_BINARY_LOCATION, oldLocation);
+			if (!StringUtils.isEmpty(oldLocation1)) {
+				OpenShiftContext.get().put(IBinaryCapability.OPENSHIFT_BINARY_LOCATION, oldLocation1);
 			}
 		}
 	}
